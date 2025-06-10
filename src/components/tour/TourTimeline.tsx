@@ -17,12 +17,13 @@ interface TourTimelineProps {
 }
 
 export function TourTimeline({ initialTourDates }: TourTimelineProps) {
-  const [allTourDates] = useState<TourDate[]>(initialTourDates); // Initial data is server-rendered
-  const [isLoading] = useState(false); // Placeholder if client-side fetching is added later
+  const [allTourDates] = useState<TourDate[]>(initialTourDates);
+  const [isLoading] = useState(false);
   
   const [searchTerm, setSearchTerm] = useState('');
   const [yearFilter, setYearFilter] = useState('');
-  const [locationFilter, setLocationFilter] = useState('');
+  const [cityFilter, setCityFilter] = useState('');
+  const [countryFilter, setCountryFilter] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
   const availableYears = useMemo(() => {
@@ -36,14 +37,20 @@ export function TourTimeline({ initialTourDates }: TourTimelineProps) {
     return Array.from(years).sort((a, b) => parseInt(b) - parseInt(a));
   }, [allTourDates]);
 
-  const availableLocations = useMemo(() => {
-    const locations = new Set<string>();
+  const availableCities = useMemo(() => {
+    const cities = new Set<string>();
     allTourDates.forEach(date => {
-      if (date.city) locations.add(date.city);
-      if (date.country) locations.add(date.country);
-      if (date.venue) locations.add(date.venue);
+      if (date.city && date.city !== 'N/A') cities.add(date.city);
     });
-    return Array.from(locations).sort((a, b) => a.localeCompare(b));
+    return Array.from(cities).sort((a, b) => a.localeCompare(b));
+  }, [allTourDates]);
+
+  const availableCountries = useMemo(() => {
+    const countries = new Set<string>();
+    allTourDates.forEach(date => {
+      if (date.country && date.country !== 'N/A') countries.add(date.country);
+    });
+    return Array.from(countries).sort((a, b) => a.localeCompare(b));
   }, [allTourDates]);
 
   const filteredTourDates = useMemo(() => {
@@ -54,21 +61,19 @@ export function TourTimeline({ initialTourDates }: TourTimelineProps) {
           dateObj = new Date(date.isoDate);
           if (isNaN(dateObj.getTime())) throw new Error('Invalid date');
         } catch(e) {
-          return false; // Skip entries with unparseable dates
+          return false; 
         }
         
         const yearMatches = yearFilter ? dateObj.getFullYear().toString() === yearFilter : true;
+        const cityMatches = cityFilter ? date.city === cityFilter : true;
+        const countryMatches = countryFilter ? date.country === countryFilter : true;
         
-        const locationString = `${date.city} ${date.country} ${date.venue}`.toLowerCase();
-        const locationMatches = locationFilter ? locationString.includes(locationFilter.toLowerCase()) : true;
-        
-        // Keyword search now only targets notes
         const searchString = `${date.notes || ''}`.toLowerCase();
         const searchMatches = searchTerm ? searchString.includes(searchTerm.toLowerCase()) : true;
         
-        return yearMatches && locationMatches && searchMatches;
+        return yearMatches && cityMatches && countryMatches && searchMatches;
       });
-  }, [allTourDates, searchTerm, yearFilter, locationFilter]);
+  }, [allTourDates, searchTerm, yearFilter, cityFilter, countryFilter]);
 
   const totalPages = Math.ceil(filteredTourDates.length / ITEMS_PER_PAGE);
   const paginatedTourDates = useMemo(() => {
@@ -78,16 +83,16 @@ export function TourTimeline({ initialTourDates }: TourTimelineProps) {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchTerm, yearFilter, locationFilter]);
+  }, [searchTerm, yearFilter, cityFilter, countryFilter]);
 
   const handleResetFilters = () => {
     setSearchTerm('');
     setYearFilter('');
-    setLocationFilter('');
-    // setCurrentPage(1); // Already handled by useEffect above
+    setCityFilter('');
+    setCountryFilter('');
   };
 
-  if (isLoading && !allTourDates.length) { // Initial loading state (if data were client-fetched)
+  if (isLoading && !allTourDates.length) { 
     return (
       <div className="flex flex-col items-center justify-center min-h-[400px] text-muted-foreground">
         <Loader2 className="h-12 w-12 animate-spin text-primary mb-4" />
@@ -103,10 +108,13 @@ export function TourTimeline({ initialTourDates }: TourTimelineProps) {
         setSearchTerm={setSearchTerm}
         yearFilter={yearFilter}
         setYearFilter={setYearFilter}
-        locationFilter={locationFilter}
-        setLocationFilter={setLocationFilter}
+        cityFilter={cityFilter}
+        setCityFilter={setCityFilter}
+        countryFilter={countryFilter}
+        setCountryFilter={setCountryFilter}
         availableYears={availableYears}
-        availableLocations={availableLocations}
+        availableCities={availableCities}
+        availableCountries={availableCountries}
         onResetFilters={handleResetFilters}
       />
 
@@ -123,13 +131,13 @@ export function TourTimeline({ initialTourDates }: TourTimelineProps) {
         <>
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            layout // Apply layout animation to the container of cards
+            layout 
           >
             <AnimatePresence mode="popLayout">
               {paginatedTourDates.map((tourDate) => (
                 <motion.div
                   key={tourDate.id}
-                  layout // Enables smooth reordering/filtering animations for each card
+                  layout 
                   initial={{ opacity: 0, scale: 0.95, y: 20 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: -20 }}

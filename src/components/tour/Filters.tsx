@@ -12,10 +12,13 @@ interface FiltersProps {
   setSearchTerm: Dispatch<SetStateAction<string>>;
   yearFilter: string;
   setYearFilter: Dispatch<SetStateAction<string>>;
-  locationFilter: string;
-  setLocationFilter: Dispatch<SetStateAction<string>>;
+  cityFilter: string;
+  setCityFilter: Dispatch<SetStateAction<string>>;
+  countryFilter: string;
+  setCountryFilter: Dispatch<SetStateAction<string>>;
   availableYears: string[];
-  availableLocations: string[];
+  availableCities: string[];
+  availableCountries: string[];
   onResetFilters: () => void;
 }
 
@@ -24,16 +27,19 @@ export function Filters({
   setSearchTerm,
   yearFilter,
   setYearFilter,
-  locationFilter,
-  setLocationFilter,
+  cityFilter,
+  setCityFilter,
+  countryFilter,
+  setCountryFilter,
   availableYears,
-  availableLocations,
+  availableCities,
+  availableCountries,
   onResetFilters,
 }: FiltersProps) {
   
   return (
     <div className="p-4 md:p-6 bg-card rounded-lg shadow-md mb-8 border border-border">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 items-end">
         <div className="space-y-1">
           <label htmlFor="keyword-search" className="text-sm font-medium text-foreground">Search Notes</label>
           <div className="relative">
@@ -71,18 +77,18 @@ export function Filters({
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="location-filter" className="text-sm font-medium text-foreground">Filter by Location</label>
-          <Select value={locationFilter} onValueChange={(value) => setLocationFilter(value === 'all' ? '' : value)}>
-            <SelectTrigger id="location-filter" className="w-full" aria-label="Filter by location">
-              <SelectValue placeholder="All Locations" />
+          <label htmlFor="city-filter" className="text-sm font-medium text-foreground">Filter by City</label>
+          <Select value={cityFilter} onValueChange={(value) => setCityFilter(value === 'all' ? '' : value)}>
+            <SelectTrigger id="city-filter" className="w-full" aria-label="Filter by city">
+              <SelectValue placeholder="All Cities" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectLabel>Location</SelectLabel>
-                <SelectItem value="all">All Locations</SelectItem>
-                {availableLocations.map((location) => (
-                  <SelectItem key={location} value={location}>
-                    {location}
+                <SelectLabel>City</SelectLabel>
+                <SelectItem value="all">All Cities</SelectItem>
+                {availableCities.map((city) => (
+                  <SelectItem key={city} value={city}>
+                    {city}
                   </SelectItem>
                 ))}
               </SelectGroup>
@@ -90,7 +96,27 @@ export function Filters({
           </Select>
         </div>
 
-        <Button onClick={onResetFilters} variant="outline" className="w-full lg:w-auto">
+        <div className="space-y-1">
+          <label htmlFor="country-filter" className="text-sm font-medium text-foreground">Filter by Country</label>
+          <Select value={countryFilter} onValueChange={(value) => setCountryFilter(value === 'all' ? '' : value)}>
+            <SelectTrigger id="country-filter" className="w-full" aria-label="Filter by country">
+              <SelectValue placeholder="All Countries" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Country</SelectLabel>
+                <SelectItem value="all">All Countries</SelectItem>
+                {availableCountries.map((country) => (
+                  <SelectItem key={country} value={country}>
+                    {country}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <Button onClick={onResetFilters} variant="outline" className="w-full xl:w-auto self-end">
           <RotateCcw className="mr-2 h-4 w-4" />
           Reset Filters
         </Button>
