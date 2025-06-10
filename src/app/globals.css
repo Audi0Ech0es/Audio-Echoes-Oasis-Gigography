@@ -4,73 +4,73 @@
 
 @layer base {
   :root {
-    --background: 210 30% 97%; /* Very Light Cool Grey - almost off-white */
-    --foreground: 210 25% 20%; /* Dark Cool Grey for text */
-    --card: 0 0% 100%; /* White */
-    --card-foreground: 210 25% 20%;
+    --background: 210 40% 98%; /* Almost white, very light cool tint */
+    --foreground: 220 40% 20%; /* Dark Navy - sponsor color, for general text */
+    --card: 0 0% 100%; /* Pure White */
+    --card-foreground: 220 40% 20%;
     --popover: 0 0% 100%;
-    --popover-foreground: 210 25% 20%;
-    --primary: 207 75% 58%; /* Vibrant Man City Sky Blue */
-    --primary-foreground: 0 0% 100%; /* White for text on primary */
-    --secondary: 207 60% 90%; /* Very Light Sky Blue */
-    --secondary-foreground: 207 60% 30%; /* Darker Blue for text on secondary */
-    --muted: 210 25% 90%; /* Light Cool Grey */
-    --muted-foreground: 210 15% 55%; /* Mid Cool Grey for placeholder text */
-    --accent: 207 65% 50%; /* Slightly Deeper Sky Blue */
-    --accent-foreground: 0 0% 100%; /* White for text on accent */
+    --popover-foreground: 220 40% 20%;
+    --primary: 205 55% 82%; /* Very Light Sky Blue - main shirt color */
+    --primary-foreground: 220 40% 20%; /* Dark Navy - sponsor text on shirt */
+    --secondary: 205 45% 92%; /* Even Paler Sky Blue - like shirt highlights */
+    --secondary-foreground: 220 35% 30%; /* A slightly softer navy for text on this very pale blue */
+    --muted: 210 30% 94%; /* Light Cool Grey */
+    --muted-foreground: 210 20% 60%; /* Mid Cool Grey for placeholder */
+    --accent: 220 40% 25%; /* Dark Navy - slightly more prominent for accents */
+    --accent-foreground: 0 0% 100%; /* White text on navy accent */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 207 40% 85%; /* Light Sky Blue-Grey Border */
-    --input: 207 50% 96%; /* Very Light Sky Blueish Input Background */
-    --ring: 207 75% 58%; /* Man City Sky Blue for focus rings */
-    --chart-1: 207 70% 50%;
-    --chart-2: 207 60% 60%;
-    --chart-3: 210 50% 70%;
-    --chart-4: 0 0% 70%; /* Grey for charts */
+    --border: 205 30% 88%; /* Light Sky Blue-Grey Border */
+    --input: 205 40% 96%; /* Very Light Sky Blueish Input Background */
+    --ring: 205 55% 75%; /* Slightly more saturated blue for focus ring */
+    --chart-1: 205 50% 70%;
+    --chart-2: 205 45% 75%;
+    --chart-3: 220 30% 60%;
+    --chart-4: 0 0% 70%; 
     --chart-5: 220 20% 60%;
     --radius: 0.5rem;
-    --sidebar-background: 210 28% 95%; 
-    --sidebar-foreground: 210 20% 25%;
-    --sidebar-primary: 207 75% 58%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 207 65% 50%;
+    --sidebar-background: 210 35% 96%; 
+    --sidebar-foreground: 220 38% 22%;
+    --sidebar-primary: 205 55% 80%;
+    --sidebar-primary-foreground: 220 40% 20%;
+    --sidebar-accent: 220 40% 28%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 207 35% 82%;
-    --sidebar-ring: 207 75% 58%;
+    --sidebar-border: 205 30% 85%;
+    --sidebar-ring: 205 55% 75%;
   }
   .dark {
-    --background: 210 20% 10%; /* Dark Blue-Grey */
-    --foreground: 210 20% 92%; /* Light Cool Grey for text */
-    --card: 210 20% 15%; /* Slightly lighter dark for cards */
-    --card-foreground: 210 20% 92%;
-    --popover: 210 20% 12%;
-    --popover-foreground: 210 20% 92%;
-    --primary: 207 70% 55%; /* Sky Blue, adapted for dark mode */
-    --primary-foreground: 0 0% 100%; 
-    --secondary: 207 50% 25%; /* Darker secondary blue */
-    --secondary-foreground: 210 20% 88%;
-    --muted: 210 20% 30%; 
-    --muted-foreground: 210 15% 60%; 
-    --accent: 207 60% 50%; /* Deeper Sky Blue Accent for dark mode */
-    --accent-foreground: 0 0% 100%; 
+    --background: 220 30% 10%; /* Very Dark Navy/Blue-Grey */
+    --foreground: 205 25% 88%; /* Light, slightly blue-tinted grey for text */
+    --card: 220 30% 15%; /* Slightly lighter dark for cards */
+    --card-foreground: 205 25% 88%;
+    --popover: 220 30% 12%;
+    --popover-foreground: 205 25% 88%;
+    --primary: 205 50% 70%; /* The light sky blue, adjusted for dark mode visibility */
+    --primary-foreground: 220 40% 15%; /* Very dark navy for text on dark mode primary */
+    --secondary: 220 25% 25%; /* Darker, muted blue for secondary elements */
+    --secondary-foreground: 205 25% 75%; /* Lighter text for on dark secondary */
+    --muted: 220 20% 30%; 
+    --muted-foreground: 210 15% 65%; 
+    --accent: 205 55% 75%; /* The light sky blue as a brighter accent in dark mode */
+    --accent-foreground: 220 40% 15%; /* Very dark navy text on this accent */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 207 25% 35%; /* Darker blue-grey border */
-    --input: 207 30% 20%; /* Darker input background */
-    --ring: 207 70% 55%;
-    --chart-1: 207 65% 50%;
-    --chart-2: 207 55% 58%;
-    --chart-3: 210 45% 65%;
+    --border: 220 25% 28%; /* Darker blue-grey border */
+    --input: 220 25% 20%; /* Darker input background */
+    --ring: 205 50% 70%;
+    --chart-1: 205 45% 65%;
+    --chart-2: 205 40% 70%;
+    --chart-3: 220 25% 55%;
     --chart-4: 0 0% 50%;
-    --chart-5: 220 20% 55%;
-    --sidebar-background: 210 18% 8%;
-    --sidebar-foreground: 210 18% 88%;
-    --sidebar-primary: 207 70% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 207 60% 50%;
-    --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 207 20% 30%;
-    --sidebar-ring: 207 70% 55%;
+    --chart-5: 220 15% 55%;
+    --sidebar-background: 220 28% 12%;
+    --sidebar-foreground: 205 22% 85%;
+    --sidebar-primary: 205 50% 68%;
+    --sidebar-primary-foreground: 220 38% 18%;
+    --sidebar-accent: 205 55% 72%;
+    --sidebar-accent-foreground: 220 38% 18%;
+    --sidebar-border: 220 25% 25%;
+    --sidebar-ring: 205 50% 70%;
   }
 }
 
