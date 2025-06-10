@@ -5,7 +5,7 @@ import type { ChangeEvent, Dispatch, SetStateAction } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { RotateCcw, Search as SearchIcon } from 'lucide-react'; // Renamed Search to SearchIcon to avoid conflict
+import { RotateCcw, Search as SearchIcon } from 'lucide-react';
 
 interface FiltersProps {
   searchTerm: string;
@@ -38,8 +38,19 @@ export function Filters({
 }: FiltersProps) {
   
   return (
-    <div className="p-4 md:p-6 bg-card rounded-lg shadow-md mb-8 border border-border">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6 mb-6">
+    <div className="relative p-4 md:p-6 bg-card rounded-lg shadow-md mb-8 border border-border">
+      <Button 
+        onClick={onResetFilters} 
+        variant="ghost" 
+        size="sm" 
+        className="absolute top-4 right-4 md:top-6 md:right-6 text-xs"
+        aria-label="Reset all filters"
+      >
+        <RotateCcw className="mr-1 h-3 w-3" />
+        Reset Filters
+      </Button>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6">
         <div className="space-y-1">
           <label htmlFor="keyword-search" className="text-sm font-medium text-foreground">Search</label>
           <div className="relative">
@@ -115,12 +126,6 @@ export function Filters({
             </SelectContent>
           </Select>
         </div>
-      </div>
-      <div className="flex justify-center sm:justify-end">
-        <Button onClick={onResetFilters} variant="outline" className="w-full sm:w-auto">
-          <RotateCcw className="mr-2 h-4 w-4" />
-          Reset Filters
-        </Button>
       </div>
     </div>
   );
