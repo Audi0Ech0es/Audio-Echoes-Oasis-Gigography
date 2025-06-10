@@ -12,7 +12,7 @@ export default {
       fontFamily: {
         body: ['Montserrat', 'sans-serif'],
         headline: ['Oswald', 'sans-serif'],
-        code: ['monospace'],
+        code: ['IBM Plex Mono', 'monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',
