@@ -58,7 +58,7 @@ export function Filters({
             <Input
               id="keyword-search"
               type="text"
-              placeholder="Search within notes..."
+              placeholder="Search notes..."
               value={searchTerm}
               onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
               className="pl-10"
