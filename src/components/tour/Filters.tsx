@@ -39,7 +39,7 @@ export function Filters({
   
   return (
     <div className="p-4 md:p-6 bg-card rounded-lg shadow-md mb-8 border border-border">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 items-end">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6 mb-6">
         <div className="space-y-1">
           <label htmlFor="keyword-search" className="text-sm font-medium text-foreground">Search Notes</label>
           <div className="relative">
@@ -115,8 +115,9 @@ export function Filters({
             </SelectContent>
           </Select>
         </div>
-
-        <Button onClick={onResetFilters} variant="outline" className="w-full xl:w-auto self-end">
+      </div>
+      <div className="flex justify-center sm:justify-end">
+        <Button onClick={onResetFilters} variant="outline" className="w-full sm:w-auto">
           <RotateCcw className="mr-2 h-4 w-4" />
           Reset Filters
         </Button>
