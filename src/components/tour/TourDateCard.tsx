@@ -1,7 +1,6 @@
 
 import type { TourDate } from '@/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Mic2 } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 
 interface TourDateCardProps {
@@ -36,7 +35,9 @@ export function TourDateCard({ tourDate }: TourDateCardProps) {
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="flex items-center mb-2">
-          <Mic2 className="mr-2 h-5 w-5 text-accent flex-shrink-0" />
+          <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="currentColor" className="mr-2 h-5 w-5 text-accent flex-shrink-0">
+            <path d="M400-120q-66 0-113-47t-47-113q0-66 47-113t113-47q23 0 42.5 5.5T480-418v-422h240v160H560v400q0 66-47 113t-113 47Z"/>
+          </svg>
           <p className="text-md font-semibold">{tourDate.venue}</p>
         </div>
         {tourDate.notes && (
