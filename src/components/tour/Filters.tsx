@@ -5,7 +5,7 @@ import type { ChangeEvent, Dispatch, SetStateAction } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { RotateCcw, Search } from 'lucide-react';
+import { RotateCcw, Search as SearchIcon } from 'lucide-react'; // Renamed Search to SearchIcon to avoid conflict
 
 interface FiltersProps {
   searchTerm: string;
@@ -41,9 +41,9 @@ export function Filters({
     <div className="p-4 md:p-6 bg-card rounded-lg shadow-md mb-8 border border-border">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6 mb-6">
         <div className="space-y-1">
-          <label htmlFor="keyword-search" className="text-sm font-medium text-foreground">Search Notes</label>
+          <label htmlFor="keyword-search" className="text-sm font-medium text-foreground">Search</label>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
+            <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
             <Input
               id="keyword-search"
               type="text"
