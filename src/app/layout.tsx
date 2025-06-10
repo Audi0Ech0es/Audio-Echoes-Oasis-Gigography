@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Tour Mapper',
-  description: 'Explore and map tour dates.',
+  title: 'Oasis Gigography',
+  description: 'Explore and map Oasis tour dates.',
 };
 
 export default function RootLayout({
