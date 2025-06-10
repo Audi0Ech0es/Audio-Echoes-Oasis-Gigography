@@ -6,7 +6,6 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { RotateCcw, Search } from 'lucide-react';
-import { LocationSuggester } from './LocationSuggester';
 
 interface FiltersProps {
   searchTerm: string;
@@ -16,6 +15,7 @@ interface FiltersProps {
   locationFilter: string;
   setLocationFilter: Dispatch<SetStateAction<string>>;
   availableYears: string[];
+  availableLocations: string[];
   onResetFilters: () => void;
 }
 
@@ -27,13 +27,10 @@ export function Filters({
   locationFilter,
   setLocationFilter,
   availableYears,
+  availableLocations,
   onResetFilters,
 }: FiltersProps) {
   
-  const handleLocationSelected = (location: string) => {
-    setLocationFilter(location);
-  };
-
   return (
     <div className="p-4 md:p-6 bg-card rounded-lg shadow-md mb-8 border border-border">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
@@ -74,11 +71,23 @@ export function Filters({
         </div>
 
         <div className="space-y-1">
-          <label htmlFor="location-suggester" className="text-sm font-medium text-foreground">Filter by Location</label>
-          <LocationSuggester 
-            onLocationSelect={handleLocationSelected}
-            initialValue={locationFilter}
-          />
+          <label htmlFor="location-filter" className="text-sm font-medium text-foreground">Filter by Location</label>
+          <Select value={locationFilter} onValueChange={(value) => setLocationFilter(value === 'all' ? '' : value)}>
+            <SelectTrigger id="location-filter" className="w-full" aria-label="Filter by location">
+              <SelectValue placeholder="All Locations" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Location</SelectLabel>
+                <SelectItem value="all">All Locations</SelectItem>
+                {availableLocations.map((location) => (
+                  <SelectItem key={location} value={location}>
+                    {location}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
 
         <Button onClick={onResetFilters} variant="outline" className="w-full lg:w-auto">

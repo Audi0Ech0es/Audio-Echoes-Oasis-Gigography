@@ -36,6 +36,16 @@ export function TourTimeline({ initialTourDates }: TourTimelineProps) {
     return Array.from(years).sort((a, b) => parseInt(b) - parseInt(a));
   }, [allTourDates]);
 
+  const availableLocations = useMemo(() => {
+    const locations = new Set<string>();
+    allTourDates.forEach(date => {
+      if (date.city) locations.add(date.city);
+      if (date.country) locations.add(date.country);
+      if (date.venue) locations.add(date.venue);
+    });
+    return Array.from(locations).sort((a, b) => a.localeCompare(b));
+  }, [allTourDates]);
+
   const filteredTourDates = useMemo(() => {
     return allTourDates
       .filter(date => {
@@ -96,6 +106,7 @@ export function TourTimeline({ initialTourDates }: TourTimelineProps) {
         locationFilter={locationFilter}
         setLocationFilter={setLocationFilter}
         availableYears={availableYears}
+        availableLocations={availableLocations}
         onResetFilters={handleResetFilters}
       />
 
