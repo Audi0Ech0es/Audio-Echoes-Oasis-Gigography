@@ -1,6 +1,7 @@
+
 import type { TourDate } from '@/types';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CalendarDays, MapPin, Building } from 'lucide-react';
+import { CalendarDays, MapPin, Mic2 } from 'lucide-react';
 import { format, parseISO } from 'date-fns';
 
 interface TourDateCardProps {
@@ -31,7 +32,7 @@ export function TourDateCard({ tourDate }: TourDateCardProps) {
       </CardHeader>
       <CardContent className="flex-grow">
         <div className="flex items-center mb-2">
-          <Building className="mr-2 h-5 w-5 text-accent flex-shrink-0" />
+          <Mic2 className="mr-2 h-5 w-5 text-accent flex-shrink-0" />
           <p className="text-md font-semibold">{tourDate.venue}</p>
         </div>
         {tourDate.notes && (

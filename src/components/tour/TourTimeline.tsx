@@ -1,3 +1,4 @@
+
 'use client';
 
 import type { TourDate } from '@/types';
@@ -5,7 +6,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { TourDateCard } from './TourDateCard';
 import { Filters } from './Filters';
 import { PaginationControls } from './PaginationControls';
-import { Loader2, DatabaseZap } from 'lucide-react';
+import { Loader2, TicketSlash } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 
@@ -99,7 +100,7 @@ export function TourTimeline({ initialTourDates }: TourTimelineProps) {
 
       {filteredTourDates.length === 0 ? (
         <div className="flex flex-col items-center justify-center min-h-[250px] text-center py-10 bg-card rounded-lg shadow border border-border">
-           <DatabaseZap className="h-16 w-16 text-primary mb-4" />
+           <TicketSlash className="h-16 w-16 text-primary mb-4" />
           <h3 className="text-2xl font-headline font-semibold text-foreground mb-2">No Tour Dates Found</h3>
           <p className="text-muted-foreground mb-6">Try adjusting your filters or search terms.</p>
            <Button onClick={handleResetFilters} variant="outline">
