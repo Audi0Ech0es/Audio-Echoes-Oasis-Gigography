@@ -12,9 +12,7 @@ export default async function HomePage() {
         <header className="mb-10 md:mb-16 text-center">
           
           
-          <p className="mt-4 text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-            Definitely Maybe... You Were There. Find Your Gig.
-          </p>
+          
         </header>
         
         <TourTimeline initialTourDates={tourDates} />
@@ -26,4 +24,3 @@ export default async function HomePage() {
     </div>
   );
 }
-
