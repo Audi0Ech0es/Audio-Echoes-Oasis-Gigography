@@ -1,7 +1,7 @@
 
 import { fetchTourData } from '@/lib/data-importer';
 import { TourTimeline } from '@/components/tour/TourTimeline';
-import { Disc3 } from 'lucide-react';
+import { CassetteTape } from 'lucide-react';
 
 export default async function HomePage() {
   const tourDates = await fetchTourData();
@@ -11,7 +11,7 @@ export default async function HomePage() {
       <main className="flex-grow container mx-auto px-4 py-8 max-w-7xl">
         <header className="mb-10 md:mb-16 text-center">
           <div className="inline-flex items-center justify-center bg-primary text-primary-foreground p-4 rounded-full mb-6 shadow-lg">
-            <Disc3 size={40} strokeWidth={1.5} />
+            <CassetteTape size={40} strokeWidth={1.5} />
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-headline font-bold text-foreground tracking-tight">
             Oasis<span className="text-primary">Gigography</span>
