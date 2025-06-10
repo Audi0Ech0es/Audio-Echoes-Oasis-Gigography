@@ -52,7 +52,8 @@ export function TourTimeline({ initialTourDates }: TourTimelineProps) {
         const locationString = `${date.city} ${date.country} ${date.venue}`.toLowerCase();
         const locationMatches = locationFilter ? locationString.includes(locationFilter.toLowerCase()) : true;
         
-        const searchString = `${date.venue} ${date.city} ${date.country} ${date.notes || ''}`.toLowerCase();
+        // Keyword search now only targets notes
+        const searchString = `${date.notes || ''}`.toLowerCase();
         const searchMatches = searchTerm ? searchString.includes(searchTerm.toLowerCase()) : true;
         
         return yearMatches && locationMatches && searchMatches;

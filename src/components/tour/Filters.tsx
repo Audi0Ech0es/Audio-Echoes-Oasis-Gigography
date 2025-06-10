@@ -1,3 +1,4 @@
+
 'use client';
 
 import type { ChangeEvent, Dispatch, SetStateAction } from 'react';
@@ -37,17 +38,17 @@ export function Filters({
     <div className="p-4 md:p-6 bg-card rounded-lg shadow-md mb-8 border border-border">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
         <div className="space-y-1">
-          <label htmlFor="keyword-search" className="text-sm font-medium text-foreground">Keyword Search</label>
+          <label htmlFor="keyword-search" className="text-sm font-medium text-foreground">Search Notes</label>
           <div className="relative">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
             <Input
               id="keyword-search"
               type="text"
-              placeholder="Search notes, venue..."
+              placeholder="Search within notes..."
               value={searchTerm}
               onChange={(e: ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
               className="pl-10"
-              aria-label="Keyword search for tour dates"
+              aria-label="Keyword search for tour date notes"
             />
           </div>
         </div>
