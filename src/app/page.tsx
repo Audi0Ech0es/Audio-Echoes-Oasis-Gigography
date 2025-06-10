@@ -23,7 +23,7 @@ export default async function HomePage() {
             Oasis<span className="text-primary">Gigography</span>
           </h1>
           <p className="mt-4 text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-            Track every Oasis performance. Filter by year, venue, and relive the Supersonic years.
+            Your ultimate guide to every Oasis gig. Relive the madness, find your night.
           </p>
         </header>
         
@@ -31,8 +31,7 @@ export default async function HomePage() {
 
       </main>
       <footer className="mt-12 py-8 border-t border-border text-center text-muted-foreground text-sm">
-        <p>&copy; {new Date().getFullYear()} Oasis Gigography. Some Might Say it's the best.</p>
-        <p className="mt-1">Don't Look Back In Anger, just find your gig.</p>
+        <p>&copy; {new Date().getFullYear()} Oasis Gigography. Part of the <a href="https://audioechoes.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">There We Were</a> series at audioechoes.com.</p>
       </footer>
     </div>
   );
