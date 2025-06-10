@@ -36,23 +36,23 @@ export function Filters({
   availableCountries,
   onResetFilters,
 }: FiltersProps) {
-  
+
   return (
     <div className="relative p-4 md:p-6 bg-card rounded-lg shadow-md mb-8 border border-border">
-      <Button 
-        onClick={onResetFilters} 
-        variant="ghost" 
-        size="sm" 
+      <Button
+        onClick={onResetFilters}
+        variant="ghost"
+        size="sm"
         className="absolute top-4 right-4 md:top-6 md:right-6"
         aria-label="Reset all filters"
       >
         <RotateCcw className="mr-1 h-4 w-4" />
-        Reset Filters
+        Reset
       </Button>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6">
         <div>
-          <label htmlFor="keyword-search" className="block text-sm font-medium text-foreground mb-1.5">Search</label>
+          <label htmlFor="keyword-search" className="block text-sm font-medium leading-none text-foreground mb-1.5">Search</label>
           <div className="relative">
             <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
             <Input
@@ -68,7 +68,7 @@ export function Filters({
         </div>
 
         <div>
-          <label htmlFor="year-filter" className="block text-sm font-medium text-foreground mb-1.5">Filter by Year</label>
+          <label htmlFor="year-filter" className="block text-sm font-medium leading-none text-foreground mb-1.5">Filter by Year</label>
           <Select value={yearFilter} onValueChange={(value) => setYearFilter(value === 'all' ? '' : value)}>
             <SelectTrigger id="year-filter" className="w-full" aria-label="Filter by year">
               <SelectValue placeholder="All Years" />
@@ -88,7 +88,7 @@ export function Filters({
         </div>
 
         <div>
-          <label htmlFor="city-filter" className="block text-sm font-medium text-foreground mb-1.5">Filter by City</label>
+          <label htmlFor="city-filter" className="block text-sm font-medium leading-none text-foreground mb-1.5">Filter by City</label>
           <Select value={cityFilter} onValueChange={(value) => setCityFilter(value === 'all' ? '' : value)}>
             <SelectTrigger id="city-filter" className="w-full" aria-label="Filter by city">
               <SelectValue placeholder="All Cities" />
@@ -108,7 +108,7 @@ export function Filters({
         </div>
 
         <div>
-          <label htmlFor="country-filter" className="block text-sm font-medium text-foreground mb-1.5">Filter by Country</label>
+          <label htmlFor="country-filter" className="block text-sm font-medium leading-none text-foreground mb-1.5">Filter by Country</label>
           <Select value={countryFilter} onValueChange={(value) => setCountryFilter(value === 'all' ? '' : value)}>
             <SelectTrigger id="country-filter" className="w-full" aria-label="Filter by country">
               <SelectValue placeholder="All Countries" />
