@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Montserrat', 'sans-serif'],
-        headline: ['Oswald', 'sans-serif'],
+        body: ['IBM Plex Mono', 'monospace'],
+        headline: ['IBM Plex Mono', 'monospace'],
         code: ['IBM Plex Mono', 'monospace'],
       },
       colors: {
