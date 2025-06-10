@@ -26,7 +26,7 @@ export default async function HomePage() {
 
       </main>
       <footer className="mt-12 py-8 border-t border-border text-center text-muted-foreground text-sm">
-        <p>&copy; {new Date().getFullYear()} Oasis Gigography. Part of the <a href="https://audioechoes.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">There We Were</a> series at audioechoes.com.</p>
+        <p>Part of the There We Were series at <a href="https://audioechoes.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">audioechoes.com</a>.</p>
       </footer>
     </div>
   );
