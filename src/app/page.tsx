@@ -4,6 +4,7 @@ import { TourTimeline } from '@/components/tour/TourTimeline';
 
 export default async function HomePage() {
   const tourDates = await fetchTourData();
+  const currentYear = new Date().getFullYear();
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -18,7 +19,7 @@ export default async function HomePage() {
             Oasis<span className="text-primary">Gigography</span>
           </h1>
           <p className="mt-4 text-md sm:text-lg text-muted-foreground max-w-3xl mx-auto">
-            Your ultimate guide to every Oasis gig. Relive the madness, find your night.
+            Definitely Maybe... You Were There. Find Your Gig.
           </p>
         </header>
         
@@ -31,3 +32,4 @@ export default async function HomePage() {
     </div>
   );
 }
+
