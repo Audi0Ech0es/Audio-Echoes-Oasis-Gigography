@@ -38,19 +38,19 @@ export function Filters({
 }: FiltersProps) {
 
   return (
-    <div className="relative p-4 md:p-6 bg-card rounded-lg shadow-md mb-8 border border-border">
+    <div className="relative p-4 bg-card rounded-lg shadow-md mb-8 border border-border">
       <Button
         onClick={onResetFilters}
         variant="ghost"
         size="sm"
-        className="absolute top-4 right-4 md:top-6 md:right-6"
+        className="absolute top-4 right-4"
         aria-label="Reset all filters"
       >
         <RotateCcw className="mr-1 h-4 w-4" />
         Reset
       </Button>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6 pt-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-4 pt-14">
         <div>
           <label htmlFor="keyword-search" className="block text-sm font-medium leading-none text-foreground mb-1.5">Search</label>
           <div className="relative">
