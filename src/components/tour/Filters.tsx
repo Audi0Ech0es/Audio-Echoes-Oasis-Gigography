@@ -50,7 +50,7 @@ export function Filters({
         Reset
       </Button>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-6 pt-16">
         <div>
           <label htmlFor="keyword-search" className="block text-sm font-medium leading-none text-foreground mb-1.5">Search</label>
           <div className="relative">
