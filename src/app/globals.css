@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%; /* Almost white, very light cool tint */
+    --background: transparent; /* Fully transparent background */
     --foreground: 220 40% 20%; /* Dark Navy - sponsor color, for general text */
     --card: 0 0% 100%; /* Pure White */
     --card-foreground: 220 40% 20%;
@@ -39,7 +39,7 @@
     --sidebar-ring: 205 55% 75%;
   }
   .dark {
-    --background: 220 30% 10%; /* Very Dark Navy/Blue-Grey */
+    --background: transparent; /* Fully transparent background */
     --foreground: 205 25% 88%; /* Light, slightly blue-tinted grey for text */
     --card: 220 30% 15%; /* Slightly lighter dark for cards */
     --card-foreground: 205 25% 88%;
